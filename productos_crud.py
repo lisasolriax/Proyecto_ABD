@@ -25,8 +25,9 @@ def actualizar_producto(id_producto, titulo, artista, genero, precio, cantidad, 
     conn = get_connection()
     cursor = conn.cursor()
     query = """
-    UPDATE Productos SET titulo=%s, artista=%s, genero=%s, precio=%s, cantidad=%s, fecha_de_lanzamiento=%s
-    WHERE id_producto=%s
+    UPDATE Productos
+    SET titulo = %s, artista = %s, genero = %s, precio = %s, cantidad = %s, fecha_de_lanzamiento = %s
+    WHERE id_producto = %s
     """
     cursor.execute(query, (titulo, artista, genero, precio, cantidad, fecha_de_lanzamiento, id_producto))
     conn.commit()
@@ -36,7 +37,7 @@ def actualizar_producto(id_producto, titulo, artista, genero, precio, cantidad, 
 def eliminar_producto(id_producto):
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM Productos WHERE id_producto=%s", (id_producto,))
+    cursor.execute("DELETE FROM Productos WHERE id_producto = %s", (id_producto,))
     conn.commit()
     cursor.close()
     conn.close()

@@ -1,13 +1,13 @@
 from db_coneccion import get_connection
 
-def crear_empleado(nombre, correo, contrasena, telefono, direccion, rol, id_empresa_reparto):
+def crear_empleado(nombre, correo, contrasena, telefono, direccion, rol):
     conn = get_connection()
     cursor = conn.cursor()
     query = """
-    INSERT INTO Empleados (nombre, correo, contrasena, telefono, direccion, rol, id_empresa_reparto)
-    VALUES (%s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO Empleados (nombre, correo, contrasena, telefono, direccion, rol)
+    VALUES (%s, %s, %s, %s, %s, %s)
     """
-    cursor.execute(query, (nombre, correo, contrasena, telefono, direccion, rol, id_empresa_reparto))
+    cursor.execute(query, (nombre, correo, contrasena, telefono, direccion, rol))
     conn.commit()
     cursor.close()
     conn.close()
@@ -21,14 +21,14 @@ def obtener_empleados():
     conn.close()
     return empleados
 
-def actualizar_empleado(id_empleado, nombre, correo, contrasena, telefono, direccion, rol, id_empresa_reparto):
+def actualizar_empleado(id_empleado, nombre, correo, contrasena, telefono, direccion, rol):
     conn = get_connection()
     cursor = conn.cursor()
     query = """
-    UPDATE Empleados SET nombre=%s, correo=%s, contrasena=%s, telefono=%s, direccion=%s, rol=%s, id_empresa_reparto=%s
+    UPDATE Empleados SET nombre=%s, correo=%s, contrasena=%s, telefono=%s, direccion=%s, rol=%s
     WHERE id_empleado=%s
     """
-    cursor.execute(query, (nombre, correo, contrasena, telefono, direccion, rol, id_empresa_reparto, id_empleado))
+    cursor.execute(query, (nombre, correo, contrasena, telefono, direccion, rol, id_empleado))
     conn.commit()
     cursor.close()
     conn.close()
