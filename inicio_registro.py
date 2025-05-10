@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from db_coneccion import get_connection
+from CRUD_Y_CONEXION.db_coneccion import get_connection
 from panel_empleado import abrir_panel_empleado
 
 ventana = tk.Tk()
@@ -12,7 +12,6 @@ fuente_titulo = ("Times New Roman", 16, "bold")
 fuente_texto = ("Times New Roman", 10, "italic")
 
 # FUNCIONES 
-
 def mostrar_error(mensaje):
     messagebox.showerror("Error", mensaje)
 

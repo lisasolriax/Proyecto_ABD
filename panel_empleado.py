@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from clientes_crud import *
-from productos_crud import *
-from empleados_crud import *
-from ordenes_crud import *
-from metodos_pago_crud import *
+from CRUD_Y_CONEXION.clientes_crud import *
+from CRUD_Y_CONEXION.productos_crud import *
+from CRUD_Y_CONEXION.empleados_crud import *
+from CRUD_Y_CONEXION.ordenes_crud import *
+from CRUD_Y_CONEXION.metodos_pago_crud import *
 
 def abrir_panel_empleado(empleado):
     app = PanelAdministrador(empleado)
